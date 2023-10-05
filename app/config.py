@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class Configuration(BaseModel):
     ENVIRONMENT: str
-    MONGO_URL: str
+    GITHUB_API_URL: str
 
 
 def new_configuration():
