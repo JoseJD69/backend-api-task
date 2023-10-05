@@ -1,0 +1,34 @@
+# Ignora archivos temporales y de respaldo generados por el sistema
+*~
+.*.swp
+*.bak
+
+# Ignora archivos de registro y archivos de caché
+log/
+logs/
+cache/
+
+# Ignora archivos y directorios generados por herramientas de construcción
+/node_modules/
+/build/
+/dist/
+/.vscode/
+/.idea/
+
+# Ignora archivos de configuración de IDE específicos
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+
+# Ignora archivos generados por sistemas de construcción como npm o yarn
+/package-lock.json
+/yarn.lock
+
+# Ignora archivos generados por lenguajes de programación específicos
+*.pyc
+__pycache__/
+
+# Ignora archivos de configuración específicos del sistema
+.DS_Store
+Thumbs.db
