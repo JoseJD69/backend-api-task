@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from app.gateways.github_gateway import GitHubGateway, GitHubGatewayImpl
 
 
 class Configuration(BaseModel):
@@ -12,5 +13,7 @@ def new_configuration():
 
 
 def di_configuration(binder, configuration=new_configuration()):
+    # Gateways
+    binder.bind(GitHubGateway, GitHubGatewayImpl(configuration.GITHUB_API_URL))
     # UseCases
-    pass
+
