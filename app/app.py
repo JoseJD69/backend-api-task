@@ -5,6 +5,7 @@ from starlette.requests import Request
 from starlette.responses import Response, PlainTextResponse
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+from app.api import app_router
 from app.config import di_configuration
 
 inject.configure(di_configuration)
@@ -12,9 +13,8 @@ inject.configure(di_configuration)
 ALLOWED_ORIGINS = "*"
 
 app = FastAPI(title="Backend Task", description="Backend Task for connection to GITHUB history", version="1.0.0")
+app.include_router(app_router, prefix="/api/v1", tags=["api"])
 
-
-# app.include_router(app_router, prefix="/api/v1", tags=["api"])
 
 @app.options("/{rest_of_path:path}", include_in_schema=False)
 def preflight_handler(request) -> Response:
@@ -50,4 +50,6 @@ async def validation_exception_handler(request, exc):
     return PlainTextResponse(str(exc), status_code=400)
 
 
-
+@app.get("/health")
+async def health():
+    return {"status": "ok", "description": "Backend Task for connection to GITHUB history"}

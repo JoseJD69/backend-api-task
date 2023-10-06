@@ -20,12 +20,14 @@ ENVIROMENT=development
 ```
 
 
-
-
 ## Ejecución
 Para ejecutar el proyecto se debe ejecutar el siguiente comando:
 
 ```bash
 python main.py
 ```
+una vez ejecutado verificar que el proyecto se encuentre corriendo en el puerto 4000, haciendo una petición GET a la siguiente url:
 
+```bash 
+http://localhost:4000/health
+```

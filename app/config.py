@@ -1,19 +1,22 @@
 from pydantic import BaseModel
 from app.gateways.github_gateway import GitHubGateway, GitHubGatewayImpl
+from decouple import config
+
+from app.usecases.ListRepositoriesUseCase import ListRepositoriesUseCase, ListRepositoriesUseCaseImpl
 
 
 class Configuration(BaseModel):
     ENVIRONMENT: str
-    GITHUB_API_URL: str
+    GITHUB_TOKEN: str
 
 
 def new_configuration():
-    configuration = Configuration(ENVIRONMENT="development", GITHUB_API_URL="https://api.github.com")
+    configuration = Configuration(ENVIRONMENT=config("ENVIRONMENT"), GITHUB_TOKEN=config("GITHUB_TOKEN"))
     return configuration
 
 
 def di_configuration(binder, configuration=new_configuration()):
     # Gateways
-    binder.bind(GitHubGateway, GitHubGatewayImpl(configuration.GITHUB_API_URL))
+    binder.bind(GitHubGateway, GitHubGatewayImpl(configuration.GITHUB_TOKEN))
     # UseCases
-
+    binder.bind(ListRepositoriesUseCase, ListRepositoriesUseCaseImpl())
