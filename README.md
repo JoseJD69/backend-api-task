@@ -14,8 +14,10 @@ pip install requeriments.txt -r
 
 Para el correcto funcionamiento del proyecto se debe crear un archivo .env con las siguientes variables de entorno:
 
+:warning: El token es valido durante 7 días y solo de acceso para repositorios publicos
+
 ```bash 
-GITHUB_TOKEN=XXXXXX-XXXXXX-XXXXXX-XXXXXX
+GITHUB_TOKEN=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
 ENVIROMENT=development
 ```
 
