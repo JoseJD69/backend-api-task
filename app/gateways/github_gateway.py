@@ -8,10 +8,10 @@ from github import Auth
 class GitHubGateway(abc.ABC):
 
     @abc.abstractmethod
-    def get_repositories(self) -> dict:
+    def get_repositories(self) -> List[dict]:
         pass
 
-    def get_commits_from_repository(self, repo_name: str) -> dict:
+    def get_commits_from_repository(self, repo_name: str) -> List[dict]:
         pass
 
 
@@ -23,8 +23,10 @@ class GitHubGatewayImpl(GitHubGateway):
 
     def get_repositories(self) -> List[dict]:
         repos = self.github.get_user().get_repos()
-        print(repos)
         return [{"name": repo.name, "url": repo.url} for repo in repos]
 
-    def get_commits_from_repository(self, repo_name: str) -> dict:
+    def get_commits_from_repository(self, repo_name: str) -> List[dict]:
+        commits = self.github.get_user().get_repo(repo_name).get_commits()
+        return [{"message": commit.commit.message, "date": commit.commit.author.date} for commit in commits]
+
         pass
