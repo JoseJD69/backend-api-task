@@ -17,7 +17,7 @@ Para el correcto funcionamiento del proyecto se debe crear un archivo .env con l
 :warning: El token es valido durante 7 días y solo de acceso para repositorios publicos
 
 ```bash 
-GITHUB_TOKEN=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
+GITHUB_TOKEN=XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 ENVIROMENT=development
 ```
 
