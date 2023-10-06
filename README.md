@@ -15,7 +15,7 @@ pip install requeriments.txt -r
 Para el correcto funcionamiento del proyecto se debe crear un archivo .env con las siguientes variables de entorno:
 
 ```bash 
-GITHUB_API_URL=https://api.github.com
+GITHUB_TOKEN=XXXXXX-XXXXXX-XXXXXX-XXXXXX
 ENVIROMENT=development
 ```
 
@@ -30,4 +30,10 @@ una vez ejecutado verificar que el proyecto se encuentre corriendo en el puerto 
 
 ```bash 
 http://localhost:4000/health
+```
+## Test
+Para ejecutar los test se debe ejecutar el siguiente comando:
+
+```bash
+pytest
 ```
