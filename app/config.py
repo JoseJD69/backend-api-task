@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from app.gateways.github_gateway import GitHubGateway, GitHubGatewayImpl
 from decouple import config
 
+from app.usecases.GetCommitsByRepo import GetCommitsByRepoUseCase, GetCommitsByRepoUseCaseImpl
 from app.usecases.ListRepositoriesUseCase import ListRepositoriesUseCase, ListRepositoriesUseCaseImpl
 
 
@@ -20,3 +21,4 @@ def di_configuration(binder, configuration=new_configuration()):
     binder.bind(GitHubGateway, GitHubGatewayImpl(configuration.GITHUB_TOKEN))
     # UseCases
     binder.bind(ListRepositoriesUseCase, ListRepositoriesUseCaseImpl())
+    binder.bind(GetCommitsByRepoUseCase, GetCommitsByRepoUseCaseImpl())

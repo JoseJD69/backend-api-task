@@ -27,6 +27,7 @@ class GitHubGatewayImpl(GitHubGateway):
 
     def get_commits_from_repository(self, repo_name: str) -> List[dict]:
         commits = self.github.get_user().get_repo(repo_name).get_commits()
-        return [{"message": commit.commit.message, "date": commit.commit.author.date} for commit in commits]
+        return [{"message": commit.commit.message, "date": commit.commit.author.date,
+                 "author": commit.commit.committer.name} for commit in commits]
 
         pass

@@ -12,7 +12,7 @@ class GetCommitsByRepoUseCase(abc.ABC):
         pass
 
 
-class GetCommitsByReposUseCaseImpl(GetCommitsByRepoUseCase):
+class GetCommitsByRepoUseCaseImpl(GetCommitsByRepoUseCase):
     gateway: GitHubGateway = inject.attr(GitHubGateway)
 
     def execute(self, repo_name: str) -> List[dict]:
